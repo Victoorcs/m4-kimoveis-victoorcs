@@ -1,14 +1,12 @@
 import app from "./app";
-import AppDataSource from "./data-source";
+import  {AppDataSource } from "./data-source";
 
-(async () => {
+AppDataSource.initialize()
+  .then(() => {
+    console.log("Database is connected");
 
-    await AppDataSource.initialize()
-    .catch((err) => {
-        console.error("Error during Data Source initialization", err)
-    })
-    
     app.listen(3000, () => {
-        console.log("Servidor executando")
-    })    
-})()
+      console.log("Server is running");
+    });
+  })
+  .catch((err) => console.log(err));
