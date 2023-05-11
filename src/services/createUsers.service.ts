@@ -11,7 +11,6 @@ const createUserService = async (userData:TUserRequest):Promise <TUserResponse> 
     const user:User = userRepository.create(userData)
 
     await userRepository.save(user)
-    console.log(user)
 
     const returnUser:TUserResponse = userSchemaResponse.parse(user)
 

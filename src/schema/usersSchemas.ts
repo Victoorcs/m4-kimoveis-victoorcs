@@ -1,4 +1,4 @@
-import { Admin } from 'typeorm'
+
 import {z} from 'zod'
 
 const userSchema = z.object ({

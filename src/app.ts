@@ -5,6 +5,7 @@ import { handleErros } from "./error"
 import userRoutes from "./routes/users.routes"
 import loginRoutes from "./routes/login.routes"
 import categoryRoutes from "./routes/category.routes"
+import realEstateRoutes from "./routes/realEstate.routes"
 
 
 const app:Application = express()
@@ -16,6 +17,8 @@ app.use('/users',userRoutes)
 app.use('/login',loginRoutes)
 
 app.use('/categories',categoryRoutes)
+
+app.use('/realEstate',realEstateRoutes)
 
 app.use(handleErros)
 export default app

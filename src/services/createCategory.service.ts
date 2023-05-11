@@ -1,12 +1,12 @@
 import { Repository } from "typeorm"
 import { AppDataSource } from "../data-source"
 import { Category } from "../entities"
-import { TCategory, TCategoryResponse } from "../interfaces/category.interface"
-import { categorySchemaResponse } from "../schema/categorySchema"
+import { TCategory } from "../interfaces/category.interface"
+import { categorySchema } from "../schema/categorySchema"
 
 
 
-const createCategoryService = async (categoryData: TCategory): Promise<TCategoryResponse> => {
+const createCategoryService = async (categoryData: TCategory): Promise<TCategory> => {
 
     const categoryRepository: Repository<Category> = AppDataSource.getRepository(Category)
   
@@ -14,7 +14,7 @@ const createCategoryService = async (categoryData: TCategory): Promise<TCategory
   
     await categoryRepository.save(category)
   
-    const returnCategory: TCategoryResponse = categorySchemaResponse.parse(category)
+    const returnCategory: TCategory = categorySchema.parse(category)
   
     return returnCategory
   }

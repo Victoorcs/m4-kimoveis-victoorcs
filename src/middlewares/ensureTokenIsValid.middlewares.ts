@@ -16,11 +16,6 @@ const ensureTokenIsValidMiddleware = (req:Request,res:Response,next:NextFunction
     jwt.verify(token,process.env.SECRET_KEY!,(error:any,decoded:any)=>{
         if(error) throw new AppError(error.message,401)
 
-       /* if (decoded.role !== "admin") {
-            if (!decoded.admin) {
-              throw new AppError("Insufficient permission",403);
-            }
-          }*/
         res.locals.admin = decoded.admin
 
         res.locals.userId = decoded.sub
