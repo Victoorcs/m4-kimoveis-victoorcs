@@ -1,7 +1,8 @@
 import { Request,Response } from "express";
-import { TCategory } from "../interfaces/category.interface";
+import { TCategory, TCategoryResponse } from "../interfaces/category.interface";
 import createCategoryService from "../services/createCategory.service";
 import listCategoriesService from "../services/listCategories.service";
+import listRealEstatesAndCategoryService from "../services/listRealEstateAndCategory.service";
 
 const createCategoryController = async (req: Request, res: Response): Promise<Response> => {
 
@@ -19,4 +20,16 @@ const listCategoriesController = async (req: Request, res: Response): Promise<Re
     return res.status(200).json(category)
 }
 
-export {createCategoryController,listCategoriesController}
+
+const listRealEstatesAndCategoryController = async (req: Request, res: Response): Promise<Response> => {
+
+    const categoryId: number = Number(req.params.id)
+
+    const realEstateAndCategory: TCategoryResponse = await listRealEstatesAndCategoryService(
+        categoryId)
+    
+
+    return res.json(...realEstateAndCategory)
+}
+
+export {createCategoryController,listCategoriesController,listRealEstatesAndCategoryController}

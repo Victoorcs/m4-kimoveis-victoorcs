@@ -25,7 +25,9 @@ const realEstateSchema = z.object({
     
 })
 
+const realEstateResponseSchema = z.array(realEstateSchema)
+
 const realEstateRequestSchema = realEstateSchema.omit({id:true,createdAt:true,updatedAt:true,sold:true,category:true,address:true}).extend({categoryId:z.number(),address:addressRequestSchema})
 
 
-export{realEstateSchema,addressSchema,realEstateRequestSchema,addressRequestSchema}
+export{realEstateSchema,addressSchema,realEstateRequestSchema,addressRequestSchema,realEstateResponseSchema}

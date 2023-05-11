@@ -1,5 +1,5 @@
 import {z} from 'zod'
-import { addressSchema, realEstateRequestSchema, realEstateSchema,  } from '../schema/realEstateSchema'
+import { addressSchema, realEstateRequestSchema, realEstateResponseSchema, realEstateSchema,  } from '../schema/realEstateSchema'
 
 
 
@@ -9,8 +9,8 @@ type TRealEstateRequest = z.infer<typeof realEstateRequestSchema>
 
 type TAddress = z.infer<typeof addressSchema>
 
+type TRealEstateResponse = z.infer<typeof realEstateResponseSchema>
 
 
 
-
-export {TAddress,TRealEstate,TRealEstateRequest}
+export {TAddress,TRealEstate,TRealEstateRequest,TRealEstateResponse}

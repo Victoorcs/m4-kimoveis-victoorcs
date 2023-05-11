@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createRealEstateController } from "../controllers/realEstate.controller";
+import { createRealEstateController, listRealEstateController } from "../controllers/realEstate.controller";
 import ensureDataIsValidMiddleware from "../middlewares/ensureDataIsValid.middlewares";
 import ensureUserIsAdminMiddleware from "../middlewares/ensureUserIsAdmin.middlewares";
 import { realEstateRequestSchema, realEstateSchema } from "../schema/realEstateSchema";
@@ -9,5 +9,7 @@ import ensureAddressIsUniqueMiddleware from "../middlewares/ensureAddressIsUniqu
 const realEstateRoutes: Router = Router()
 
 realEstateRoutes.post('',ensureTokenIsValidMiddleware,ensureUserIsAdminMiddleware,ensureAddressIsUniqueMiddleware,ensureDataIsValidMiddleware(realEstateRequestSchema),createRealEstateController)
+
+realEstateRoutes.get('',listRealEstateController)
 
 export default realEstateRoutes
