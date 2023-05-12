@@ -5,6 +5,7 @@ import { Category } from "../entities"
 import { AppError } from "../error"
 
 const ensureCategoryNameIsUniqueMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+  
     const categoryName = req.body.name
   
     const categoryRepository: Repository<Category> = AppDataSource.getRepository(Category)

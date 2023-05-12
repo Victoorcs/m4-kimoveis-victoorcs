@@ -15,9 +15,9 @@ const createCategoryController = async (req: Request, res: Response): Promise<Re
 
 const listCategoriesController = async (req: Request, res: Response): Promise<Response> => {
     
-    const category = await listCategoriesService()
+    const listCategory = await listCategoriesService()
 
-    return res.status(200).json(category)
+    return res.status(200).json(listCategory)
 }
 
 
@@ -25,9 +25,7 @@ const listRealEstatesAndCategoryController = async (req: Request, res: Response)
 
     const categoryId: number = Number(req.params.id)
 
-    const realEstateAndCategory: TCategoryResponse = await listRealEstatesAndCategoryService(
-        categoryId)
-    
+    const realEstateAndCategory: TCategoryResponse = await listRealEstatesAndCategoryService(categoryId)
 
     return res.json(...realEstateAndCategory)
 }

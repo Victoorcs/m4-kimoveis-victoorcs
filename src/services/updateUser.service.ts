@@ -5,6 +5,7 @@ import { User } from "../entities";
 import {  userSchemaResponse } from "../schema/usersSchemas";
 
 const updateUserService = async (userData:TUserUpdateRequest, userId:number):Promise<TUserResponse> =>{
+    
     const userRepository:Repository<User> = AppDataSource.getRepository(User)
 
     const oldUserData:User | null =  await userRepository.findOneBy({

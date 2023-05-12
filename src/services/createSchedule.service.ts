@@ -2,11 +2,11 @@ import { Repository} from "typeorm"
 import { AppDataSource } from "../data-source"
 import { RealEstate, Schedule, User } from "../entities"
 import { AppError } from "../error"
-import { TSchedules, TSchedulesRequest } from "../interfaces/schedules.interface"
-import { scheduleSchema } from "../schema/schedulesSchema"
+import {  TCreateScheduleResponse, TSchedulesRequest } from "../interfaces/schedules.interface"
 
 
-const createScheduleService = async (scheduleData: TSchedulesRequest, userId: number): Promise<any> => {
+
+const createScheduleService = async (scheduleData: TSchedulesRequest, userId: number): Promise<TCreateScheduleResponse> => {
 
     const scheduleRepository: Repository<Schedule> = AppDataSource.getRepository(Schedule)
 
@@ -76,7 +76,6 @@ const createScheduleService = async (scheduleData: TSchedulesRequest, userId: nu
 
     await scheduleRepository.save(schedule)
 
-    //const returnSchedule:TSchedules = scheduleSchema.parse(schedule)
 
     return {message:"Schedule created"}
 }

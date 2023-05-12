@@ -16,4 +16,8 @@ const scheduleSchemaRequest = z.object({
     realEstateId: z.number(),
 })
 
-export{scheduleSchema,scheduleSchemaRequest}
+const createScheduleResult = z.object({
+    message:z.string()
+})
+
+export{scheduleSchema,scheduleSchemaRequest,createScheduleResult}

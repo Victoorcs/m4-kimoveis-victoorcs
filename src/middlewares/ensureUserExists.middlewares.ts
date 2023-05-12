@@ -6,6 +6,7 @@ import { AppError } from "../error"
 
 
 const ensureUserExistsMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+  
     const userRepository: Repository<User> = AppDataSource.getRepository(User)
     
     const  id  = req.params.id

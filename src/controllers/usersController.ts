@@ -16,12 +16,13 @@ const createUsersController = async (req:Request, res:Response): Promise<Respons
 
 const listUsersController = async (req:Request,res:Response):Promise<Response> =>{
 
-    const users = await listUsersService()
+    const listUsers = await listUsersService()
 
-    return res.status(200).json(users)
+    return res.status(200).json(listUsers)
 }
 
 const deleteUserController = async (req: Request, res: Response): Promise<Response> => {
+
     const userId: number = Number(req.params.id)
   
     await deleteUserService(userId)
@@ -30,6 +31,7 @@ const deleteUserController = async (req: Request, res: Response): Promise<Respon
 }
 
 const updateUserController = async (req: Request, res: Response): Promise<Response> => {
+    
     const userData:TUserUpdateRequest = req.body
 
     const userId:number = Number(req.params.id)

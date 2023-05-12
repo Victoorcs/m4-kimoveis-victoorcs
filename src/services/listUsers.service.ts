@@ -6,6 +6,7 @@ import { usersSchemaResponse } from "../schema/usersSchemas"
 
 
 const listUsersService = async ():Promise<TUsersResponse> =>{
+    
     const userRepository:Repository<User> = AppDataSource.getRepository(User)
 
     const users: User[] = await userRepository.find()

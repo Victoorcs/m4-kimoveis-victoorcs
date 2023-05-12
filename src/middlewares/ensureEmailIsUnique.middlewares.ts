@@ -6,7 +6,9 @@ import { AppError } from "../error"
 
 
 const ensureEmailIsUniqueMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+
     const usersRepository: Repository<User> = AppDataSource.getRepository(User)
+    
     const { email } = req.body
   
     const existingUser = await usersRepository.findOne({

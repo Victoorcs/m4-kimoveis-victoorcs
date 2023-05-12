@@ -2,8 +2,6 @@ import { AppDataSource } from "../data-source"
 import { RealEstate } from "../entities"
 
 
-
-
 const listRealEstateService = async () => {
     
     const realEstateRepository = AppDataSource.getRepository(RealEstate)
